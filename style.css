@@ -22,7 +22,7 @@ body {
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
 }
 
-h1, section {
+h1, section, #downloadResume, #themeSwitcher {
     box-shadow: 5px 5px 8px rgb(71, 136, 211);
 }
 
@@ -41,7 +41,7 @@ h1, section {
 }
 
 .btn{
-    margin-bottom: 3rem;
+    margin: 3rem;
 }
 
 .theme-switcher, .download-resume {
@@ -53,18 +53,19 @@ h1, section {
     cursor: pointer;
     position: absolute;
     z-index: 10;
+    font-size: 1.2rem;
 }
 
 .theme-switcher {
     top: 1rem;
     right: 1rem;
-    margin-right: 2rem;
+    margin-right: 6rem;
 }
 
 .download-resume {
     top: 1rem;
     right: 10rem;
-    margin-right: 2rem; 
+    margin-right: 10rem; 
 }
 
 .resume-content {
@@ -207,7 +208,7 @@ body.theme-dark header p {
     color: #fff;
 }
 
-body.theme-dark h1, body.theme-dark section {
+body.theme-dark h1, body.theme-dark section, body.theme-dark #downloadResume, body.theme-dark #themeSwitcher {
     box-shadow: 5px 5px 8px rgb(209, 145, 193);
 }
 
@@ -231,7 +232,7 @@ body.theme-dark h1, body.theme-dark section {
     }
 
     li {
-        width: 100%;
+        width: 90%;
         max-width: none;
     }
 
@@ -250,17 +251,20 @@ body.theme-dark h1, body.theme-dark section {
         font-size: 1rem;
     }
 
-    img {
-        width: 10rem;
-        height: 10rem;
-    }
-
     h2 {
         font-size: 1.25rem;
     }
 
     h3 {
         font-size: 1rem;
+    }
+
+    section {
+        width: 87%;
+    }
+
+    li {
+        width: 70%;
     }
 }
 
