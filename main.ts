@@ -36,3 +36,64 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 });
+
+// change image functionality
+const profileImage = document.getElementById('profileImage') as HTMLImageElement;
+const imageUpload = document.getElementById('imageUpload') as HTMLInputElement;
+
+profileImage.addEventListener('click', () => {
+    imageUpload.click();  // Opens the file explorer
+});
+
+imageUpload.addEventListener('change', () => {
+    const file = imageUpload.files ? imageUpload.files[0] : null;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if (e.target && typeof e.target.result === 'string') {
+                profileImage.src = e.target.result;  // Set new image source
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Add skill, education, experience, and project items dynamically
+function addItem(containerId: string, contentHTML: string): void {
+  const container = document.getElementById(containerId);
+  if (container) {
+      const newItem = document.createElement("div");
+      newItem.className = "dynamic-item";
+      newItem.innerHTML = contentHTML;
+
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "remove-btn";
+      removeBtn.textContent = "-";
+      removeBtn.addEventListener("click", () => container.removeChild(newItem));
+
+      newItem.appendChild(removeBtn);
+      container.appendChild(newItem);
+  }
+}
+
+// Content templates for each section
+const skillTemplate = `<p contenteditable="true">• New Skill</p>`;
+const educationTemplate = `
+  <h3 contenteditable="true">‣ New Education</h3>
+  <p contenteditable="true">• Institution Name</p>
+`;
+const experienceTemplate = `
+  <h3 contenteditable="true">‣ New Experience</h3>
+  <p contenteditable="true">• Company Name</p>
+  <p contenteditable="true">• Description of your role</p>
+`;
+const projectTemplate = `
+  <h3 contenteditable="true">‣ New Project</h3>
+  <p contenteditable="true">• Description of the project</p>
+`;
+
+// Event listeners for adding items
+document.getElementById("addSkill")?.addEventListener("click", () => addItem("skillContainer", skillTemplate));
+document.getElementById("addEducation")?.addEventListener("click", () => addItem("educationContainer", educationTemplate));
+document.getElementById("addExperience")?.addEventListener("click", () => addItem("experienceContainer", experienceTemplate));
+document.getElementById("addProject")?.addEventListener("click", () => addItem("projectContainer", projectTemplate));
