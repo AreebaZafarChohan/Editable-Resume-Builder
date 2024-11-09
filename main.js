@@ -1,4 +1,11 @@
 var _a, _b, _c, _d, _e;
+// Selecting the hamburger menu, navbar, and nav links
+var hamburger = document.querySelector('.hamburger');
+var navMenu = document.querySelector('nav ul');
+// Toggle class on click for responsive navigation
+hamburger === null || hamburger === void 0 ? void 0 : hamburger.addEventListener('click', function () {
+    navMenu === null || navMenu === void 0 ? void 0 : navMenu.classList.toggle('active');
+});
 // Function to save content to localStorage
 function saveContent() {
     var editableElements = document.querySelectorAll('[contenteditable="true"]');
